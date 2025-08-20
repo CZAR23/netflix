@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Banner/>
-      <RowPost url = {orginals} title="netflix"   />
+      <RowPost url = {orginals} title="asdfghjkl"   />
       <RowPost url= {action} title="action"  isSmall />
     </div>
   );
