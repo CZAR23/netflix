@@ -15,11 +15,11 @@ jobs:
     steps:
       # 1️⃣ Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 2️⃣ Setup Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18   # Change if you use another version
           cache: "npm"
@@ -32,9 +32,9 @@ jobs:
       - name: Build React App
         run: npm run build
 
-      # 5️⃣ Upload build folder (optional, helps in debugging)
+      # 5️⃣ Upload build folder (optional, helps debugging)
       - name: Upload build folder
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: react-build
           path: build
@@ -47,7 +47,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 6️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -55,5 +55,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-
-          
