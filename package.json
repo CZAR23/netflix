@@ -1,5 +1,7 @@
 {
   "name": "netflix",
+
+  "homepage": "https://CZAR23.github.io/netflix/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +17,7 @@
     "react-youtube": "^10.1.0",
     "web-vitals": "^2.1.4"
   },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

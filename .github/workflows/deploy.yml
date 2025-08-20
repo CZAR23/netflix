@@ -1,0 +1,59 @@
+name: React CI/CD to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main   # Run workflow only when pushing to main branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18   # Change if you use another version
+          cache: "npm"
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4️⃣ Build React project
+      - name: Build React App
+        run: npm run build
+
+      # 5️⃣ Upload build folder (optional, helps in debugging)
+      - name: Upload build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: react-build
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Required for pushing to gh-pages branch
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 6️⃣ Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+
+          
