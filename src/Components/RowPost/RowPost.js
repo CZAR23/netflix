@@ -8,13 +8,14 @@ import { imageURL,API_KEY} from '../../constents/constans.js'
 
 function RowPost(props) {
   const [movies, setmovies] = useState([])
-  const [id,SetID] = useState('')
+  // const [id,SetID] = useState('')
   useEffect(() => {
     axios.get(props.url).then(Response =>{
       console.log(Response.data)
       setmovies(Response.data.results) 
     })
   }, [])
+  const id=1
   const opts = {
       height: '390',
       width: '100%',
