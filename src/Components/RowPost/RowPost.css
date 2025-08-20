@@ -1,0 +1,33 @@
+.row{
+    margin-left: 20px;
+    color: aliceblue;
+}
+
+.posters{
+    display: flex;
+    height: 350px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.post{
+    max-height: 250px;
+    margin-right: 10px;
+}
+
+
+
+.smallpost{
+    max-height: 150px;
+    margin-right: 10px;
+    
+}
+
+
+
+
+
